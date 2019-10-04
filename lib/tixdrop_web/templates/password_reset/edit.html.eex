@@ -1,0 +1,22 @@
+<h1 class="cover-heading">Reset Password</h2>
+
+<%= form_for @conn, Routes.password_reset_path(@conn, :update), [as: :password_reset, method: :put], fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Please check the errors below:</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= bs_label f, :password %>
+    <%= bs_password_input f, :password %>
+    <%= error_tag f, :password %>
+  </div>
+
+  <%= hidden_input f, :key, value: @key %>
+
+  <div class="form-group float-right">
+    <%= link "Back", to: Routes.page_path(@conn, :index), class: "btn btn-lg" %></span>
+    <%= submit "Change my password", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+FROM codelever/ubuntu-phoenix-docker:ubuntu-1804-erlang-21-2-2-elixir-1-7-4-node-10-8-0
+
+# install postgres client
+RUN apt-get update  && \
+    apt-get install -f -y postgresql-client && \
+    apt-get install -f -y inotify-tools
+
+ENV APP_ROOT /app
+WORKDIR ${APP_ROOT}

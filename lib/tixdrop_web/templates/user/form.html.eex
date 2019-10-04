@@ -1,0 +1,26 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      Please check the errors below.
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= bs_label f, :email %>
+    <%= bs_email_input(f, :email) %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <%= if @action == "/users" do %>
+  <div class="form-group">
+    <%= bs_label f, :password %>
+    <%= bs_password_input(f, :password) %>
+    <%= error_tag f, :password %>
+  </div>
+  <% end %>
+
+  <div class="form-group float-right">
+    <%= link "Back", to: Routes.page_path(@conn, :index), class: "btn btn-lg" %></span>
+    <%= submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

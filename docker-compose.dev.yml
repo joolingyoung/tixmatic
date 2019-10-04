@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres:10.5
+    environment:
+      POSTGRES_USER: tixdrop
+      POSTGRES_PASSWORD: tixdrop
+    volumes:
+      - "./db_temp:/var/lib/postgresql/data"
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    image: web:latest
+    environment:
+      DATABASE_URL: ecto://tixdrop:tixdrop@db/tix_prod
+      PORT: 80 
+      PGHOST: db 
+      PGPORT: 5432
+      PGUSER: tixdrop
+    command: /app/entrypoint.dev.sh 
+    ports:
+      - "4000:4000"
+    links:
+      - db
+    volumes:
+      - ".:/app"

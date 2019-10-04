@@ -1,0 +1,30 @@
+# Miscellaneous dotfiles
+.git
+.gitignore
+.idea
+.vscode
+
+# docker files
+docker-compose.yml
+Dockerfile
+
+# App artifacts
+_build
+db
+deps
+doc
+**/test/
+*.ez
+.elixir_ls
+
+# Generate on crash by the VM
+erl_crash.dump
+
+# Static artifacts
+**/bower_components/
+**/node_modules/
+
+# We are building assets during deployment, ignore priv/static
+# **/priv/static/
+
+**/config/*-example

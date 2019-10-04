@@ -1,0 +1,7 @@
+<h1 class="cover-heading">Thank you!</h1>
+<p>
+Please check your inbox at <%= @user.email %> for instructions on how to verify your email account with Tixdrop and complete your sign up.
+</p>
+<p>
+You must verify your email account before you can begin using the system.
+</p>

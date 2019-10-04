@@ -1,0 +1,3 @@
+defmodule TixdropWeb.LayoutView do
+  use TixdropWeb, :view
+end

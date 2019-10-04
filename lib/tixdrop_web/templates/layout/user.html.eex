@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%= render TixdropWeb.SharedView, "head.html", assigns %>
+</head>
+
+<body>
+    <div class="cover-wrapper">
+        <div class="d-flex w-75 h-100 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">
+                        <%= link "Tixdrop", to: Routes.page_path(@conn, :index) %>
+                    </h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <%= active_link(@conn, "Sign Up", to: Routes.user_path(@conn, :new), class: "nav-link") %>
+                        <%= active_link(@conn, "Sign In", to: Routes.session_path(@conn, :new), class: "nav-link") %>
+                    </nav>
+                </div>
+            </header>
+
+            <div class="alert-container">
+                <%= render TixdropWeb.SharedView, "alerts.html", assigns %>
+            </div>
+
+            <main role="main" class="inner cover">
+                <%= render @view_module, @view_template, assigns %>
+            </main>
+
+            <footer class="mastfoot mt-auto text-center">
+                <div class="inner">
+                    <p>©2018 Tixmatic<p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

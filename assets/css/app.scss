@@ -1,0 +1,17 @@
+/* This file is for your main application css. */
+
+@import "~bootstrap/scss/bootstrap";
+@import "./cover.scss";
+@import "./workspace.scss";
+
+
+/* Alerts and form errors */
+.alert:empty {
+  display: none;
+}
+
+/* Needed by full screen background image in landing */
+html,
+body {
+  height: 100%;
+}
